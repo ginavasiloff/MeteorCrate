@@ -1,0 +1,93 @@
+*{
+	font-family: 'Open Sans', sans-serif;
+	font-weight:100;
+	margin:0;
+	padding:0;
+}
+a{
+	color: #138A50;
+}
+body{
+	padding: 0 20px;
+	background: url('images/fabric_of_squares_gray.png');
+	background-repeat: repeat;
+	background-attachment: fixed;
+}
+form{
+	padding: 0;
+	margin: 0;
+}
+
+#login-buttons a, .accounts-dialog a{
+	text-decoration: none;
+}
+.hidden{
+	display:none;
+}
+
+header{
+	clear:both;
+	width:100%;
+}
+nav{
+	margin-top:10px;
+}
+nav a{
+	margin-right:1em;
+}
+
+#home{
+	font-size:1.5em;
+}
+
+ul{
+	list-style: none;
+	margin:0;
+}
+
+input[type="text"]{
+	border-radius: 0;	
+}
+
+input[type="text"]:focus{
+	box-shadow: none;
+}
+
+.artists, .album, .year{
+	font-size:0.75em;
+	margin:0;
+	color:#666666;
+}
+.album{
+	font-style:italic;
+}
+.track{
+	margin-bottom:10px;	
+}
+
+.tags{
+	font-size:0.75em;
+}
+.page-title h1{
+	font-size:1.5em;
+	margin-bottom: -10px;
+	color: #333333;
+}
+
+/**		icons			**/
+
+.fa-spotify{
+	color:#C6E03C;
+}
+
+.fa-circle-thin{
+	color:#ffffff;
+}
+
+.fa-tag{
+	color:#cccccc;
+}
+.fa-tag:hover{
+	color:#DEBC85;
+	cursor:pointer;
+}
