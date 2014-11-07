@@ -83,7 +83,9 @@ if (Meteor.isServer) {
 	  	  	  	  break;
 	  	  	  }
 	  	  }
-	  	  	  Tracks.insert(track);
+	  	  if( !Tracks.findOne({isrc: track.isrc}) ){
+	  	  	  Tracks.insert( track );
+	  	  }
 	  }
   	}
   
