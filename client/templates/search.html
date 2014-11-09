@@ -1,0 +1,21 @@
+<template name="search">
+	<div class="page-title">
+			<!--<span class="fa fa-stack fa-lg">
+				<i class="fa fa-circle fa-stack-1x"></i>
+				<i class="fa fa-circle-thin fa-stack-1x"></i>
+				<i class="fa fa-spotify fa-stack-1x"></i>
+			</span>-->
+		<h1>Search for a track</h1>
+	</div>
+	<form id="search">
+		<input type="text" placeholder="search"/>
+	</form>
+	
+	{{#if results}}
+	<ul class="track-list">
+	{{#each results}}
+		<li>{{> track}}</li>
+	{{/each}}
+	</ul>
+	{{/if}}
+</template>

@@ -1,0 +1,14 @@
+<template name="track">
+	<div class="track" id="{{isrc}}">
+		<span class="title" >{{#with title}}{{name}}{{/with}}</span> 
+		<i class="fa fa-tag" title="add a tag"></i><br />
+		<span class="artists">{{#each artists}}{{name}}{{/each}}</span> 
+		<span class="year">- {{year}}</span>
+		<span class="album hidden"> - {{#with album}}{{title}}{{/with}}</span>
+		<br />
+		<span class="tags">{{#each tags}} <span class="tag">{{tag}}</span> {{/each}}</span>
+		<form class="addTag hidden">
+			<input type="text" placeholder="add a tag" />
+		</form>
+	</div>
+</template>
