@@ -20,6 +20,12 @@ Template.track.events({
   		'submit form': function(event){
   			var isrc = $( event.currentTarget ).parent().attr('id');
   			var input = $('#' + isrc + ' input').val();
-  			MyTags.insert(  {	'tag': input, 'isrc': isrc } );
+  			if (! MyTags.findOne({'tag':input})){
+  					MyTags.insert(  {	'tag': input, 'isrc': isrc } );
+  			}
+  			else{
+  				var id = MyTags.findOne({'tag':input})._id;
+  				MyTags.update({_id:id},{$addToSet:{'isrc':isrc}});
+  			}
   		}
 });//end of Template.track.events

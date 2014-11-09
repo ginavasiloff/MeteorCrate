@@ -1,4 +1,4 @@
-processResult = function(result){
+function processResult(result){
   var tracks = JSON.parse(result.content).tracks;
   Tracks.remove({});
   for(i=0; i<tracks.length; i++){
