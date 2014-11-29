@@ -30,6 +30,8 @@ Template.track.events({
   			event.preventDefault();
   			var id;
   			var title;
+  			var album;
+  			var artist;
   			var isrc = $( event.currentTarget ).parent().attr('id');
   			var input = $('#' + isrc + ' input').val();
   			var track = MyTracks.findOne({'isrc': isrc});
@@ -47,7 +49,9 @@ Template.track.events({
   			}
   			else{
   				title = this.title.name;
-  				MyTracks.insert( {'isrc': isrc, 'title': title, 'tags': [input]} );
+  				album = this.album;
+  				artist = this.artists[0].name;
+  				MyTracks.insert( {'isrc': isrc, 'artist': artist, 'album': album.title, 'title': title, 'tags': [input]} );
   			}
   			
   		},
