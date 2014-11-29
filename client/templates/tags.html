@@ -1,5 +1,17 @@
 <template name="tags">
 	{{#each tags}}
-		{{tag}}
+	<span class="tag">{{tag}}</span>
 	{{/each}}
+	
+	<div id="track-list" class="hidden">
+	<h3>Tracks</h3>
+	{{#if tracks}}
+	<ul>
+		{{#each tracks}}
+			<li>{{title}}</li>
+		{{/each}}
+	</ul>
+	{{/if}}
+	</div>
 </template>
+

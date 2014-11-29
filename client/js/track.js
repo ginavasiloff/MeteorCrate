@@ -29,8 +29,10 @@ Template.track.events({
   		'submit form': function(event){
   			event.preventDefault();
   			var id;
+  			var title;
   			var isrc = $( event.currentTarget ).parent().attr('id');
   			var input = $('#' + isrc + ' input').val();
+  			var track = MyTracks.findOne({'isrc': isrc});
   			if ( MyTags.findOne({'tag':input}) ){
   				id = MyTags.findOne({'tag':input})._id;
   				MyTags.update({_id:id},{$addToSet:{'songs':isrc}});
@@ -39,12 +41,13 @@ Template.track.events({
   				MyTags.insert(  {	'tag': input, 'songs': [isrc] } );
   			}
   			
-  			if ( MyTracks.findOne({'isrc': isrc}) ) {
-  				id = MyTracks.findOne( {'isrc': isrc} )._id;
+  			if ( track ) {
+  				id = track._id;
   				MyTracks.update( {_id: id}, {$addToSet: {'tags': input}} );
   			}
   			else{
-  				MyTracks.insert( {'isrc': isrc, 'tags': [input]} );
+  				title = this.title.name;
+  				MyTracks.insert( {'isrc': isrc, 'title': title, 'tags': [input]} );
   			}
   			
   		},

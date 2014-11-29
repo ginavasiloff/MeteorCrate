@@ -40,3 +40,7 @@ searchSpotify: function(query){
 	return result.statusCode;
 }
 });//end of Meteor.methods                            
+Meteor.startup( function(){
+	//MyTracks.remove({});
+	//MyTags.remove({});	
+});
