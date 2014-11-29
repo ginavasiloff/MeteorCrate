@@ -4,6 +4,7 @@
 	font-size: 14px;
 	line-height: 14px;
 	padding: 0;
+	margin: 0;
 }
 
 body {
@@ -17,8 +18,7 @@ a {
 
 header{
 	background: url('images/shley-tree-1.png') #0d1621;
-	padding: 10px 20px;
-	width: 100%;
+	padding: 10px;
 }
 
 header , header a {
@@ -28,8 +28,9 @@ header , header a {
 
 main {
 	padding-left: 10px;
+	padding-top: 20px;
 	width: 60%;
-	margin: auto;
+	margin: 0 auto;
 }
 
 #login-buttons a , .accounts-dialog a {
@@ -39,6 +40,14 @@ main {
 .hidden {
 	display: none;
 }
+
+h1 {
+	font-size: 22px;
+	line-height: 22px;
+	margin: 0;
+	padding: 0;	
+}
+
 h1.brand {
 	position: fixed;
 	right: 20px;
@@ -89,15 +98,14 @@ input[type="text"]:focus {
 	font-style: italic;
 }
 .track {
-	margin-bottom: 10px;	
+	margin-bottom: 15px;	
 }
 
 .tags {
 	font-size: 0.75em;
 }
+
 .page-title h1 {
-	font-size: 1.5em;
-	margin-bottom: -10px;
 	color: #00abc9;;
 }
 

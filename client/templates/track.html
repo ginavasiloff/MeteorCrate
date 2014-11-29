@@ -6,7 +6,9 @@
 		<span class="year">- {{year}}</span>
 		<span class="album hidden"> - {{#with album}}{{title}}{{/with}}</span>
 		<br />
-		<span class="tags">{{#each tags}} <span class="tag">{{tag}} <i class="fa fa-remove" id="{{_id}}"></i></span> {{/each}}</span>
+		{{#if tags}}
+		<span class="tags">Tags: {{#each tags}} <span class="tag">{{this}} <i class="fa fa-remove" id="{{_id}}"></i></span> {{/each}}</span>
+		{{/if}}
 		<form class="addTag hidden">
 			<input type="text" placeholder="add a tag" />
 		</form>

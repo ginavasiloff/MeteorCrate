@@ -1,15 +1,21 @@
 Template.track.helpers({
   		  tags: function(){
   		  	 var isrc = this.isrc;
-  		  	 var tags = MyTags.findOne({'isrc' : isrc}).tags;
-  		  	return tags;
+  		  	 var track = MyTracks.findOne({'isrc' : isrc});
+  		  	 if ( track ){
+  		  	 	return track.tags;
+  		  	 }
+  		  	 else {
+  		  	 	 return false;
+  		  	 }
   		  }
+  		  
 });//end of Template.track.helpers
   
 Template.track.events({
 		
+		// display the text box to enter a new tag
   		'click .track .fa-tag': function(event){
-  		// display the text box to enter a new tag
   			var isrc = $( event.currentTarget ).parent().attr('id');
   			if( $('#' + isrc + ' form').hasClass('hidden') ){
 				$('.track form').addClass('hidden');
@@ -25,24 +31,26 @@ Template.track.events({
   			var id;
   			var isrc = $( event.currentTarget ).parent().attr('id');
   			var input = $('#' + isrc + ' input').val();
-  			if (!MyTags.findOne({'tag':input})){
-  				MyTags.insert(  {	'tag': input, 'songs': [isrc] } );
-  			}
-  			else{
+  			if ( MyTags.findOne({'tag':input}) ){
   				id = MyTags.findOne({'tag':input})._id;
   				MyTags.update({_id:id},{$addToSet:{'songs':isrc}});
   			}
-  			if (!MyTracks.findOne({'isrc': isrc})){
-  				MyTracks.insert({'isrc': isrc, 'tags': [input]});
+  			else{
+  				MyTags.insert(  {	'tag': input, 'songs': [isrc] } );
+  			}
+  			
+  			if ( MyTracks.findOne({'isrc': isrc}) ) {
+  				id = MyTracks.findOne( {'isrc': isrc} )._id;
+  				MyTracks.update( {_id: id}, {$addToSet: {'tags': input}} );
   			}
   			else{
-  				var id = MyTracks.findOne({'isrc': isrc})._id;
-  				MyTracks.update({_id: id}, {$addToSet: {'tags': [input]}} );
+  				MyTracks.insert( {'isrc': isrc, 'tags': [input]} );
   			}
+  			
   		},
   		
   		'click .fa-remove': function(event){
-  			var id = event.target.id;
-  			MyTags.remove({_id:id});
+  			//var id = event.target.id;
+  			//MyTracks.remove({_id:id});
   		}
 });//end of Template.track.events
