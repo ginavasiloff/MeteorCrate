@@ -15,4 +15,5 @@ Template.search.events({
 	});
 
  },
+ 
 });//end of Template.search.events

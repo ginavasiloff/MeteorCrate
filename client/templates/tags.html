@@ -4,17 +4,19 @@
 	{{/each}}
 	
 	<div id="track-list" class="hidden">
-	<h3>Tracks</h3>
 	{{#if tracks}}
+	<h3>Tracks</h3>
 	<ul>
 		{{#each tracks}}
-			<li>
+			{{#if title}}<li>
 				{{title}} <br />
 				{{artist}} - {{album}}
 			</li>
+			{{/if}}
 		{{/each}}
 	</ul>
 	{{/if}}
 	</div>
 </template>
+
 

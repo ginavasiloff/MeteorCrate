@@ -57,7 +57,27 @@ Template.track.events({
   		},
   		
   		'click .fa-remove': function(event){
-  			//var id = event.target.id;
-  			//MyTracks.remove({_id:id});
+  			var isrc = event.currentTarget.parentNode.parentNode.parentNode.id;
+  			var track = MyTracks.findOne({'isrc': isrc});
+  			var tagString = JSON.stringify( this );
+  				 tagString = tagString.replace(/['"]+/g, '');
+  			var tag = MyTags.findOne({'tag': tagString});
+  			
+  			//remove the tag from the song
+  			if( track.tags.length <= 1){
+  				MyTracks.remove({_id: track._id});
+  			}
+  			else{
+  				
+  				MyTracks.update({_id: track._id}, {$pull: {tags: tagString}});
+  			}
+         
+  			//remove the song from the tag
+  			if( tag.songs.length <= 1 ){
+  				MyTags.remove({_id: tag._id});	
+  			}
+  			else{
+  				MyTags.update({_id: tag._id}, {$pull: {'songs': isrc}});	
+  			}
   		}
 });//end of Template.track.events

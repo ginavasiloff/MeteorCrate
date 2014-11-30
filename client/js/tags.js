@@ -5,10 +5,10 @@ Template.tags.helpers({
   		  },//end of tags
   		  
   		  tracks: function( ){
-  		  	  var activeTrack = Session.get( 'activeTrack' );
-  		  	  if( activeTrack.songs ){
+  		  	  var activeTag = Session.get( 'activeTag' );
+  		  	  if( activeTag.songs ){
   		  	  	  var taggedSongs = [];
-  		  	  	  activeTrack.songs.forEach( function( song ){
+  		  	  	  activeTag.songs.forEach( function( song ){
   		  	  	  		taggedSongs.push( MyTracks.findOne( {'isrc': song}) );
   		  	  	  });
   		  	  	  return taggedSongs;
@@ -23,7 +23,11 @@ Template.tags.helpers({
 Template.tags.events({
 	'click .tag': function( event ){
 		$( '#track-list' ).removeClass( 'hidden' );
-		Session.set( 'activeTrack', this );
+		Session.set( 'activeTag', this );
+	},
+	
+	'change li': function( event ){
+		console.log( this );	
 	}
 });
 
