@@ -46,7 +46,7 @@ Template.track.events({
   				artist = this.artists[0].name;
   				MyTracks.insert( {'isrc': isrc, 'artist': artist, 'album': album.title, 'title': title, 'tags': [input]} );
   			}
-  			
+  			$('#' + isrc + ' form').addClass('hidden');
   		},
   		
   		'click .fa-remove': function(event){
