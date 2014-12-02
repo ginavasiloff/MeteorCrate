@@ -5,24 +5,18 @@
 	line-height: 14px;
 	padding: 0;
 	margin: 0;
+	color: #0d1621;
 }
 
 body {
-	background: #eeefff;
-	/*url('images/checkered-light-emboss.png') #d6d5d3;*/
-}
-
-a {
-	color: #00abc9;
+	background: #ffffff;
 }
 
 header{
-	background: url('images/shley-tree-1.png') #0d1621;
 	padding: 10px;
 }
 
 header , header a {
-	color: #d6d5d3;
 	font-weight: bold;
 }
 
@@ -46,27 +40,6 @@ h1 {
 	line-height: 22px;
 	margin: 0;
 	padding: 0;	
-}
-
-h1.brand {
-	position: fixed;
-	right: 20px;
-	bottom: 0;
-	font-size: 1em;
-	color: #0d1621;
-}
-
-.rotate {
-	/* Safari */
-	-webkit-transform: rotate(-90deg);
-	/* Firefox */
-	-moz-transform: rotate(+45deg);
-	/* IE */
-	-ms-transform: rotate(-90deg);
-	/* Opera */
-	-o-transform: rotate(-90deg);
-	/* Internet Explorer */
-	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
 nav a {
@@ -111,25 +84,3 @@ input[type="text"]:focus {
 	font-size: 0.75em;
 }
 
-.page-title h1 {
-	color: #00abc9;;
-}
-
-/**		icons			**/
-
-.fa-spotify {
-	color: #C6E03C;
-}
-
-.fa-circle-thin {
-	color: #ffffff;
-}
-
-.fa-tag {
-	color: #cccccc;
-}
-
-.fa-tag:hover {
-	color: #DEBC85;
-	cursor: pointer;
-}
