@@ -6,16 +6,7 @@ Template.tags.helpers({
   		  
   		  tracks: function(){
   		  	  var activeTag = Session.get( 'activeTag' );
-  		  	  if( activeTag ){
-  		  	  	  var taggedSongs = [];
-  		  	  	  activeTag.songs.forEach( function( song ){
-  		  	  	  		taggedSongs.push( MyTracks.findOne( {'isrc': song}) );
-  		  	  	  });
-  		  	  	  return taggedSongs;
-  		  	  }
-  		  	  else{
-  		  	  	  return false;
-  		  	  }
+  		  	  return MyTracks.find({'tags': {$in: [activeTag]}});
   		  }//end of tracks
   		  
 });//end of Template.tags.helpers
@@ -23,7 +14,7 @@ Template.tags.helpers({
 Template.tags.events({
 	'click .tag': function( event ){
 		$( '#track-list' ).removeClass( 'hidden' );
-		Session.set( 'activeTag', this );
+		Session.set( 'activeTag', this.name );
 	},
 	
 	'change li': function( event ){
