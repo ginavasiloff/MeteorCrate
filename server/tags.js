@@ -43,5 +43,4 @@ searchSpotify: function(query){
 
 Meteor.startup( function(){
 		MyTracks.remove({});
-		MyTags.remove({});	
 });
