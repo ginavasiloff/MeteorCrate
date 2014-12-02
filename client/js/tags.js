@@ -1,10 +1,10 @@
 Template.tags.helpers({
 		
   		  tags: function() {
-  		  	  return MyTags.find({}, {sort: {'tag':-1}});
+  		  	  return MyTags.find({}, {sort: {'name':-1}});
   		  },//end of tags
   		  
-  		  tracks: function( ){
+  		  tracks: function(){
   		  	  var activeTag = Session.get( 'activeTag' );
   		  	  if( activeTag ){
   		  	  	  var taggedSongs = [];
