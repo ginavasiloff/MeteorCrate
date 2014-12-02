@@ -29,16 +29,16 @@ function processResult(result){
 }; //end of processResult
 
 Meteor.methods({
-searchSpotify: function(query){
-	Tracks.remove({});
-	this.unblock();
-	var url = "http://ws.spotify.com/search/1/track.json?q=title:"+query;
-	result = HTTP.get(url);
-	if(result.content){
-		processResult(result);
+	searchSpotify: function(query){
+		Tracks.remove({});
+		this.unblock();
+		var url = "http://ws.spotify.com/search/1/track.json?q=title:"+query;
+		result = HTTP.get(url);
+		if(result.content){
+			processResult(result);
+		}
+		return result.statusCode;
 	}
-	return result.statusCode;
-}
 });//end of Meteor.methods            
 
 Meteor.startup( function(){

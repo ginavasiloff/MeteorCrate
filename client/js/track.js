@@ -35,13 +35,6 @@ Template.track.events({
   			var isrc = $( event.currentTarget ).parent().attr('id');
   			var input = $('#' + isrc + ' input').val();
   			var track = MyTracks.findOne({'isrc': isrc});
-  			if ( MyTags.findOne({'name':input}) ){
-  				id = MyTags.findOne({'name':input})._id;
-  				MyTags.update({_id:id},{$addToSet:{'songs':isrc}});
-  			}
-  			else{
-  				MyTags.insert(  {	'name': input, 'songs': [isrc] } );
-  			}
   			
   			if ( track ) {
   				id = track._id;
@@ -61,7 +54,6 @@ Template.track.events({
   			var track = MyTracks.findOne({'isrc': isrc});
   			var tagString = JSON.stringify( this );
   				 tagString = tagString.replace(/['"]+/g, '');
-  			var tag = MyTags.findOne({'name': tagString});
   			
   			//remove the tag from the song
   			if( track.tags.length <= 1){
@@ -70,14 +62,6 @@ Template.track.events({
   			else{
   				
   				MyTracks.update({_id: track._id}, {$pull: {tags: tagString}});
-  			}
-         
-  			//remove the song from the tag
-  			if( tag.songs.length <= 1 ){
-  				MyTags.remove({_id: tag._id});	
-  			}
-  			else{
-  				MyTags.update({_id: tag._id}, {$pull: {'songs': isrc}});	
   			}
   		}
 });//end of Template.track.events
