@@ -6,7 +6,7 @@ Template.tags.helpers({
   		  
   		  tracks: function( ){
   		  	  var activeTag = Session.get( 'activeTag' );
-  		  	  if( activeTag.songs ){
+  		  	  if( activeTag ){
   		  	  	  var taggedSongs = [];
   		  	  	  activeTag.songs.forEach( function( song ){
   		  	  	  		taggedSongs.push( MyTracks.findOne( {'isrc': song}) );
