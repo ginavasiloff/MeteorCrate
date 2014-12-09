@@ -14,12 +14,18 @@ body {
 
 header{
 	padding: 10px;
+	position: fixed;
 }
 
 header , header a {
 	font-weight: bold;
 }
 
+form {
+	margin: 0;
+	padding: 0;
+}
+	
 main {
 	padding-left: 10px;
 	padding-top: 20px;
@@ -76,11 +82,46 @@ input[type="text"]:focus {
 	margin-bottom: 15px;	
 }
 
-.tag:hover{
+.tag:hover {
 	cursor: pointer;	
+}
+
+.fa-tag:hover {
+	cursor: pointer;
 }
 
 .tags {
 	font-size: 0.75em;
 }
 
+#sign-in:hover {
+	cursor: pointer;
+}
+
+.drop-down {
+ 	 margin-top: 20px;
+ 	 background-color: #ffffff; 	 
+ 	 position:fixed;
+ 	 border: 1px solid #d6d6d6;
+ 	 text-align: center;
+ 	 padding: 20px 10px 10px 10px;
+}
+
+.drop-down .close {
+	 position: absolute;
+	 top: 0;
+	 right: 0;
+}
+
+.action {
+	color: green;
+	text-decoration: underline;
+}
+
+.action:hover {
+	cursor: pointer;
+}
+
+.drop-down input {
+	border-radius: 0;
+}

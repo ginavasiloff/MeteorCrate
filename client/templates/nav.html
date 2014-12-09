@@ -1,7 +1,17 @@
 <template name="nav">
-	<nav>
+<div class="row">
+		<nav class="span12">
 			<a id="sign-in">Sign In</a>
 			<a href="search">Search</a>
 			<a href="tags">Browse Tags</a>
 		</nav>
+		<div id="sign-in-form" class="hidden drop-down span3">
+		<span class="close"><i class="fa fa-close"></i></span>
+			<form>
+				<input type="text" placeholder="email" />
+				<input type="password" placeholder="password" />
+			</form>
+			<span id="register" class="action">I need to register.</span>
+		</div>        
+</div>
 </template>
